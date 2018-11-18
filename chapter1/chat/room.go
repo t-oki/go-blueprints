@@ -35,7 +35,7 @@ func (r *room) run() {
 		case client := <-r.leave:
 			delete(r.clients, client)
 			close(client.send)
-			r.tracer.Trace("A client has leaved")
+			r.tracer.Trace("A client has left")
 		case msg := <-r.forward:
 			r.tracer.Trace("received msg: ", string(msg))
 			for client := range r.clients {
